@@ -6,7 +6,6 @@
 
 ## 1_Introduction/1.1_Example:_Polynomial_Curve_Fitting
 
-
 ## 1_Introduction/1.2_Probability_Theory
 
 - [00_1.2.1_Probability_densities](./1_Introduction/1.2_Probability_Theory/00_1.2.1_Probability_densities.py)
@@ -43,7 +42,6 @@
 
 - [00_1.6.1_Relative_entropy_and_mutual_information](./1_Introduction/1.6_Information_Theory/00_1.6.1_Relative_entropy_and_mutual_information.py)
 - [00_1.6.1_Relative_entropy_and_mutual_information](./1_Introduction/1.6_Information_Theory/00_1.6.1_Relative_entropy_and_mutual_information.md)
-
 
 # 2_Probability_Distributions
 
@@ -93,7 +91,6 @@
 - [00_2.5.1_Kernel_density_estimators](./2_Probability_Distributions/2.5_Nonparametric_Methods/00_2.5.1_Kernel_density_estimators.md)
 - [01_2.5.2_Nearest-neighbour_methods](./2_Probability_Distributions/2.5_Nonparametric_Methods/01_2.5.2_Nearest_neighbour_methods.py)
 - [01_2.5.2_Nearest-neighbour_methods](./2_Probability_Distributions/2.5_Nonparametric_Methods/01_2.5.2_Nearest_neighbour_methods.md)
-
 
 # 3_Linear_Models_for_Regression
 
@@ -192,7 +189,6 @@
 - [01_4.5.2_Predictive_distribution](./4_Linear_Models_for_Classification/4.5_Bayesian_Logistic_Regression/01_4.5.2_Predictive_distribution.py)
 - [01_4.5.2_Predictive_distribution](./4_Linear_Models_for_Classification/4.5_Bayesian_Logistic_Regression/01_4.5.2_Predictive_distribution.md)
 
-
 # 5_Neural_Networks
 
 ## 5_Neural_Networks/5.1_Feed-forward_Network_Functions
@@ -265,7 +261,6 @@
 - [02_5.7.3_Bayesian_neural_networks_for_classification](./5_Neural_Networks/5.7_Bayesian_Neural_Networks/02_5.7.3_Bayesian_neural_networks_for_classification.py)
 - [02_5.7.3_Bayesian_neural_networks_for_classification](./5_Neural_Networks/5.7_Bayesian_Neural_Networks/02_5.7.3_Bayesian_neural_networks_for_classification.md)
 
-
 # 6_Kernel_Methods
 
 - [00_6.1_Dual_Representations](.//6_Kernel_Methods/00_6.1_Dual_Representations.py)
@@ -294,7 +289,6 @@
 - [06_6.4.7_Connection_to_neural_networks](./6_Kernel_Methods/6.4_Gaussian_Processes/06_6.4.7_Connection_to_neural_networks.py)
 - [06_6.4.7_Connection_to_neural_networks](./6_Kernel_Methods/6.4_Gaussian_Processes/06_6.4.7_Connection_to_neural_networks.md)
 
-
 # 7_Sparse_Kernel_Machines
 
 ## 7_Sparse_Kernel_Machines/7.1_Maximum_Margin_Classifiers
@@ -318,7 +312,6 @@
 - [01_7.2.2_Analysis_of_sparsity](./7_Sparse_Kernel_Machines/7.2_Relevance_Vector_Machines/01_7.2.2_Analysis_of_sparsity.md)
 - [02_7.2.3_RVM_for_classification](./7_Sparse_Kernel_Machines/7.2_Relevance_Vector_Machines/02_7.2.3_RVM_for_classification.py)
 - [02_7.2.3_RVM_for_classification](./7_Sparse_Kernel_Machines/7.2_Relevance_Vector_Machines/02_7.2.3_RVM_for_classification.md)
-
 
 # 8_Graphical_Models
 
@@ -369,7 +362,6 @@
 - [06_8.4.7_Loopy_belief_propagation](./8_Graphical_Models/8.4_Inference_in_Graphical_Models/06_8.4.7_Loopy_belief_propagation.md)
 - [07_8.4.8_Learning_the_graph_structure](./8_Graphical_Models/8.4_Inference_in_Graphical_Models/07_8.4.8_Learning_the_graph_structure.py)
 - [07_8.4.8_Learning_the_graph_structure](./8_Graphical_Models/8.4_Inference_in_Graphical_Models/07_8.4.8_Learning_the_graph_structure.md)
-
 
 # 9_Mixture_Models_and_EM
 
@@ -457,7 +449,6 @@
 - [01_10.7.2_Expectation_propagation_on_graphs](./10_Approximate_Inference/10.7_Expectation_Propagation/01_10.7.2_Expectation_propagation_on_graphs.py)
 - [01_10.7.2_Expectation_propagation_on_graphs](./10_Approximate_Inference/10.7_Expectation_Propagation/01_10.7.2_Expectation_propagation_on_graphs.md)
 
-
 # 11_Sampling_Methods
 
 ## 11_Sampling_Methods/11.1_Basic_Sampling_Algorithms
@@ -531,7 +522,6 @@
 - [02_12.4.3_Modelling_nonlinear_manifolds](./12_Continuous_Latent_Variables/12.4_Nonlinear_Latent_Variable_Models/02_12.4.3_Modelling_nonlinear_manifolds.py)
 - [02_12.4.3_Modelling_nonlinear_manifolds](./12_Continuous_Latent_Variables/12.4_Nonlinear_Latent_Variable_Models/02_12.4.3_Modelling_nonlinear_manifolds.md)
 
-
 # 13_Sequential_Data
 
 - [00_13.1_Markov_Models](.//13_Sequential_Data/00_13.1_Markov_Models.py)
@@ -562,7 +552,6 @@
 - [03_13.3.4_Particle_filters](./13_Sequential_Data/13.3_Linear_Dynamical_Systems/03_13.3.4_Particle_filters.py)
 - [03_13.3.4_Particle_filters](./13_Sequential_Data/13.3_Linear_Dynamical_Systems/03_13.3.4_Particle_filters.md)
 
-
 # 14_Combining_Models
 
 - [00_14.1_Bayesian_Model_Averaging](.//14_Combining_Models/00_14.1_Bayesian_Model_Averaging.py)
@@ -586,5 +575,4 @@
 - [01_14.5.2_Mixtures_of_logistic_models](./14_Combining_Models/14.5_Conditional_Mixture_Models/01_14.5.2_Mixtures_of_logistic_models.md)
 - [02_14.5.3_Mixtures_of_experts](./14_Combining_Models/14.5_Conditional_Mixture_Models/02_14.5.3_Mixtures_of_experts.py)
 - [02_14.5.3_Mixtures_of_experts](./14_Combining_Models/14.5_Conditional_Mixture_Models/02_14.5.3_Mixtures_of_experts.md)
-
 
