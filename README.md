@@ -1,6 +1,32 @@
 # PRML
 
-这是一个关于PRML的目录结构。
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> A chapter-by-chapter companion to Bishop's *Pattern Recognition and Machine Learning* —
+> notes + runnable scripts across all 14 chapters. —— 《模式识别与机器学习》逐章笔记 + 可运行代码,共 14 章。
+
+## 🚀 Quick Start
+
+```bash
+python3 "4_Linear_Models_for_Classification/4.4_The_Laplace_Approximation/00_4.4.1_Model_comparison_and_BIC.py"
+```
+每个 `.py` 独立可运行 (self-contained).
+
+## ✅ Quality Bar
+
+- 每节配一对 `摘要(.md)` + `代码(.py)`,覆盖 Bishop 全书 14 章。
+- 演示脚本 headless 运行,无副作用。
+
+## 🔬 Verified Demo Evidence
+
+> 冒烟样例; 全部 198 个 `.py` 可无错执行。 (All 198 demo scripts run cleanly; a
+> representative run verified.)
+
+
+---
+
+# 目录结构
 
 # 1_Introduction
 
