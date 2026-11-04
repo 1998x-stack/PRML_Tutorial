@@ -523,17 +523,40 @@ def create_directories_and_files(
         readme_file.write("\n")
 
 def main():
-    root_dir = './'
-    # 创建根目录
-    os.makedirs(root_dir, exist_ok=True)
+    """Generate an initial scaffold ONLY into a new or empty destination.
 
-    # 创建 README.md 文件
-    with open(os.path.join(root_dir, "README.md"), 'w', encoding='utf-8') as readme_file:
+    The legacy version used to overwrite the current repository's README and
+    chapter lessons merely by running `python main.py`. This entrypoint is
+    deliberately opt-in and refuses all non-empty directories.
+    """
+    import argparse
+    from pathlib import Path
+
+    parser = argparse.ArgumentParser(
+        description="Create a PRML chapter scaffold in a NEW, EMPTY directory. "
+                    "Existing files are never overwritten."
+    )
+    parser.add_argument(
+        "destination",
+        type=Path,
+        help="Required output directory (new or empty); never run over the repository",
+    )
+    args = parser.parse_args()
+    destination = args.destination.expanduser().resolve()
+    if destination.exists():
+        if not destination.is_dir():
+            parser.error(f"Destination is not a directory: {destination}")
+        if any(destination.iterdir()):
+            parser.error(f"Refusing to overwrite non-empty directory: {destination}")
+    else:
+        destination.mkdir(parents=True)
+
+    with (destination / "README.md").open("x", encoding="utf-8") as readme_file:
         readme_file.write("# PRML\n\n")
-        readme_file.write("这是一个关于PRML的目录结构。\n\n")
-        create_directories_and_files(root_dir, structure, readme_file)
+        readme_file.write("This directory is a generated scaffold, not finished lessons.\n\n")
+        create_directories_and_files(str(destination), structure, readme_file)
 
-    print("目录和文件结构已生成，并创建 README.md 文件。")
+    print(f"Scaffold created in {destination}")
 
 if __name__ == "__main__":
     main()
