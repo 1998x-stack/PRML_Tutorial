@@ -2,6 +2,7 @@
 
 Do not confuse these learning kernels with production-scale model packages.
 """
+from .bayesian_classification import BayesianLogisticLaplace
 from .supervised import (
     BayesianLinearRegression,
     BinaryLogisticRegression,
@@ -16,6 +17,7 @@ from .supervised import (
 
 __all__ = [
     "BayesianLinearRegression",
+    "BayesianLogisticLaplace",
     "BinaryLogisticRegression",
     "GaussianDiscriminant",
     "IRLSLogisticRegression",
