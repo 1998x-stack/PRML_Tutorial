@@ -1,6 +1,6 @@
 # PRML Tutorial — Pattern Recognition and Machine Learning
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/CI-Python%203.10%20%7C%203.12-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A chapter-structured learning companion to Bishop's *Pattern Recognition and Machine Learning*.
@@ -14,6 +14,7 @@ A chapter-structured learning companion to Bishop's *Pattern Recognition and Mac
 
 - [Nine-stage curriculum and engineering roadmap](docs/ROADMAP_9_PHASES.md)
 - [Chapter quality and review standard](docs/CHAPTER_QUALITY_STANDARD.md)
+- [V0.2: Chapters 3–4 supervised-learning implementation status](docs/V0_2_SUPERVISED_LEARNING.md)
 
 ## Quick start / 使用方式
 
@@ -21,8 +22,14 @@ A chapter-structured learning companion to Bishop's *Pattern Recognition and Mac
 # Read-only inventory: chapter pairs, possible stubs, and missing partners
 python3 scripts/audit_curriculum.py
 
-# Run the audit unit tests (Python standard library)
+# Install the minimal dependency for the current numerical tests
+python3 -m pip install "numpy>=1.24,<3"
+
+# Run the focused audit and numerical unit tests
 python3 -m unittest discover -s tests -p 'test_*.py'
+
+# Check the links in the 11 revised V0.2 lessons
+python3 scripts/check_v02_links.py
 ```
 
 Chapter demonstrations may require separate scientific Python dependencies; they are being
@@ -34,6 +41,7 @@ runtime requirements. Do not run `python3 main.py` to start the course.
 - Current inventory: **197 Markdown files + 197 chapter Python files**.
 - Chapters **8–14** contain **89 chapter pairs** of very small placeholder files.
 - Python coverage and mathematical correctness remain **unverified at repository scale**.
+- V0.2 has first-pass numerical implementations for **11 of 34 chapter 3–4 pairs**; see the status document for tested boundaries.
 - A small file is a review signal, not a substitute for inspecting its content or testing it.
 - The former claim that all **198** scripts ran successfully has been removed because
   the count disagreed with the file tree and no complete CI evidence was established.
