@@ -148,6 +148,8 @@ class DirectScriptTests(unittest.TestCase):
         "4_Linear_Models_for_Classification/4.3_Probabilistic_Discriminative_Models/02_4.3.3_Iterative_reweighted_least_squares.py",
         "4_Linear_Models_for_Classification/4.3_Probabilistic_Discriminative_Models/03_4.3.4_Multiclass_logistic_regression.py",
         "4_Linear_Models_for_Classification/4.4_The_Laplace_Approximation/00_4.4.1_Model_comparison_and_BIC.py",
+        "4_Linear_Models_for_Classification/4.5_Bayesian_Logistic_Regression/00_4.5.1_Laplace_approximation.py",
+        "4_Linear_Models_for_Classification/4.5_Bayesian_Logistic_Regression/01_4.5.2_Predictive_distribution.py",
     ]
 
     def test_all_nine_direct_scripts(self):
@@ -157,6 +159,65 @@ class DirectScriptTests(unittest.TestCase):
                                      capture_output=True, text=True, timeout=40)
                 self.assertEqual(run.returncode, 0, run.stderr)
                 self.assertTrue(run.stdout.strip())
+
+
+
+class LaplaceClassificationTests(unittest.TestCase):
+    def setUp(self):
+        from prml.bayesian_classification import BayesianLogisticLaplace
+        self.Cls = BayesianLogisticLaplace
+        rng = np.random.default_rng(2026)
+        self.X = rng.normal(size=(75, 2))
+        probs = sigmoid(0.3 + 0.8 * self.X[:, 0] - 1.1 * self.X[:, 1])
+        self.y = rng.binomial(1, probs).astype(float)
+
+    def test_map_gradient_and_hessian_numerically(self):
+        model = self.Cls(alpha=0.9)
+        w = np.array([0.2, -0.5, 0.1])
+        _, grad, hess = model.objective_gradient_hessian(self.X, self.y, w)
+        eps = 1e-5
+        numerical_grad = np.empty_like(grad)
+        numerical_hess = np.empty_like(hess)
+        for j in range(len(w)):
+            bump = np.zeros_like(w)
+            bump[j] = eps
+            lp, gp, _ = model.objective_gradient_hessian(self.X, self.y, w + bump)
+            lm, gm, _ = model.objective_gradient_hessian(self.X, self.y, w - bump)
+            numerical_grad[j] = (lp - lm) / (2 * eps)
+            numerical_hess[:, j] = (gp - gm) / (2 * eps)
+        np.testing.assert_allclose(grad, numerical_grad, atol=2e-8)
+        np.testing.assert_allclose(hess, numerical_hess, atol=2e-8)
+
+    def test_positive_covariance_and_probabilities(self):
+        model = self.Cls(alpha=1.2).fit(self.X, self.y)
+        self.assertTrue(np.linalg.eigvalsh(model.covariance_).min() > 0)
+        self.assertTrue(np.all(np.diff(model.objective_history_) <= 1e-9))
+        self.assertLess(model.objective_history_[-1], model.objective_history_[0])
+        probs = model.predict_proba(self.X[:10])
+        self.assertEqual(probs.shape, (10, 2))
+        np.testing.assert_allclose(probs.sum(axis=1), 1, atol=1e-12)
+        self.assertTrue(np.all((probs >= 0) & (probs <= 1)))
+
+    def test_gaussian_hermite_quadrature_consistency(self):
+        model = self.Cls(alpha=2.0).fit(self.X, self.y)
+        test_x = np.array([[-2., .3], [0., 0.], [1.5, -1.]])
+        p32 = model.predict_proba(test_x, quadrature_points=32)
+        p64 = model.predict_proba(test_x, quadrature_points=64)
+        np.testing.assert_allclose(p32, p64, atol=1e-6)
+        means, vars_ = model.logit_mean_variance(test_x)
+        self.assertTrue(np.all(vars_ >= 0))
+        self.assertEqual(means.shape, (3,))
+
+    def test_priors_and_input_validation(self):
+        for alpha in (0, -1, float("inf")):
+            with self.assertRaises(ValueError):
+                self.Cls(alpha=alpha)
+        model = self.Cls().fit(self.X, self.y)
+        for n in (3, 129, 2.5):
+            with self.assertRaises(ValueError):
+                model.predict_proba(self.X[:1], quadrature_points=n)
+        with self.assertRaises(ValueError):
+            model.predict_proba(np.ones((2, 3)))
 
 
 if __name__ == "__main__":

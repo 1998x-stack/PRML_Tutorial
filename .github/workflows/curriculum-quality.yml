@@ -33,7 +33,7 @@ jobs:
           python -m py_compile tests/test_audit_curriculum.py tests/test_ch1_curve_fitting.py
           python -m py_compile "1_Introduction/1.2_Probability_Theory/04_1.2.5_Curve_fitting_re_visited.py"
           python -m py_compile main.py
-          python -m py_compile prml/__init__.py prml/supervised.py tests/test_v02_supervised.py
+          python -m py_compile prml/__init__.py prml/supervised.py prml/bayesian_classification.py tests/test_v02_supervised.py
       - name: Run deterministic unit tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Verify destructive generator is opt-in
