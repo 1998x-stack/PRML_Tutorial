@@ -1,31 +1,45 @@
-# PRML
+# PRML Tutorial — Pattern Recognition and Machine Learning
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> A chapter-by-chapter companion to Bishop's *Pattern Recognition and Machine Learning* —
-> notes + runnable scripts across all 14 chapters. —— 《模式识别与机器学习》逐章笔记 + 可运行代码,共 14 章。
+A chapter-structured learning companion to Bishop's *Pattern Recognition and Machine Learning*.
+以原创数学推导、可复现实验与可验证算法为目标的中文机器学习教程。
 
-## 🚀 Quick Start
+> **Important / 当前状态**：目录已覆盖原书全部 **14 章，共 197 对 Markdown/Python 章节文件**，但存在大量尚未完成的内容和脚本占位符。这不是一套已通过全面测试的成品；不要将“文件已存在”视为“代码已实现”。
+>
+> **Safety / 安全**：根目录的 `main.py` 是章节脚手架生成器，不是教程入口。该工具已改为必须指定一个新的或空的输出目录，避免覆盖现有章节资料。
+
+## Nine-phase improvement plan / 九阶段优化
+
+- [Nine-stage curriculum and engineering roadmap](docs/ROADMAP_9_PHASES.md)
+- [Chapter quality and review standard](docs/CHAPTER_QUALITY_STANDARD.md)
+
+## Quick start / 使用方式
 
 ```bash
-python3 "4_Linear_Models_for_Classification/4.4_The_Laplace_Approximation/00_4.4.1_Model_comparison_and_BIC.py"
+# Read-only inventory: chapter pairs, possible stubs, and missing partners
+python3 scripts/audit_curriculum.py
+
+# Run the audit unit tests (Python standard library)
+python3 -m unittest discover -s tests -p 'test_*.py'
 ```
-每个 `.py` 独立可运行 (self-contained).
 
-## ✅ Quality Bar
+Chapter demonstrations may require separate scientific Python dependencies; they are being
+validated chapter-by-chapter under the nine-phase plan. Refer to each lesson for its actual
+runtime requirements. Do not run `python3 main.py` to start the course.
 
-- 每节配一对 `摘要(.md)` + `代码(.py)`,覆盖 Bishop 全书 14 章。
-- 演示脚本 headless 运行,无副作用。
+## Current quality status
 
-## 🔬 Verified Demo Evidence
-
-> 冒烟样例; 全部 198 个 `.py` 可无错执行。 (All 198 demo scripts run cleanly; a
-> representative run verified.)
-
+- Current inventory: **197 Markdown files + 197 chapter Python files**.
+- Chapters **8–14** contain **89 chapter pairs** of very small placeholder files.
+- Python coverage and mathematical correctness remain **unverified at repository scale**.
+- A small file is a review signal, not a substitute for inspecting its content or testing it.
+- The former claim that all **198** scripts ran successfully has been removed because
+  the count disagreed with the file tree and no complete CI evidence was established.
 
 ---
-
+ 
 # 目录结构
 
 # 1_Introduction
